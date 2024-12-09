@@ -32,6 +32,7 @@ output_subtitles = []
 i = 0  # 输入字幕文件的下标
 j = 0  # 输入字幕文件第i个字幕的字符位置
 for input_line in input_lines_path.read_text("utf-8").splitlines():
+    input_line = input_line.strip()
     if not input_line:
         continue
 
@@ -41,10 +42,13 @@ for input_line in input_lines_path.read_text("utf-8").splitlines():
     for character in input_line:
         if character in to_newline_characters + to_space_characters + " \n":
             continue
+        # 在字幕输入中查找字符
         while input_subtitles[i].content[j] != character:
             i, j = next_ij(i, j, input_subtitles)
+        # 指针移动到下一个字符
         i, j = next_ij(i, j, input_subtitles)
 
+    # 计算时间轴
     if j == 0 and i == len(input_subtitles):
         end_time = input_subtitles[-1].end
     elif j == 0 and i < len(input_subtitles):
@@ -58,6 +62,7 @@ for input_line in input_lines_path.read_text("utf-8").splitlines():
         start_time = srt.timedelta(seconds=0)
     else:
         start_time = output_subtitles[-1].end
+
     output_subtitles.append(srt.Subtitle(
         index=0,
         start=start_time,
