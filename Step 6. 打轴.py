@@ -43,7 +43,7 @@ for input_line in input_lines_path.read_text("utf-8").splitlines():
         if character in to_newline_characters + to_space_characters + " \n":
             continue
         # 在字幕输入中查找字符
-        while input_subtitles[i].content[j] != character:
+        while input_subtitles[i].content and input_subtitles[i].content[j] != character:
             i, j = next_ij(i, j, input_subtitles)
         # 指针移动到下一个字符
         i, j = next_ij(i, j, input_subtitles)
