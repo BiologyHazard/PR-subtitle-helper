@@ -1,0 +1,9 @@
+[project]
+name = "pr-subtitle-helper"
+version = "0.1.0"
+description = "Make subtitle using Adobe Premiere Pro"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "srt>=2.0.0",
+]
