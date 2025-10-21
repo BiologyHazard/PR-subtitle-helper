@@ -1,3 +1,5 @@
 # PR 字幕助手
 
-https://h089spg07ll.feishu.cn/docx/I7XudouVroXN3dxW1AFcNToOnse
+## 文档（飞书云文档）
+
+https://h089spg07ll.feishu.cn/wiki/NnB8wP8kOirfdvkxyC0cedkynec
